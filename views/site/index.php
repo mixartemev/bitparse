@@ -54,7 +54,12 @@ $ltc = [
 <?= ChartJs::widget([
     'type'  => ChartJs::TYPE_LINE,
     'data'  => $btc,
-    'options'   => []
+    'options'   => [
+        'title' => [
+            'display' => true,
+            'text' => 'BitCoin',
+        ]
+    ]
 ]);
 ?>
 <?= ChartJs::widget([
