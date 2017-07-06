@@ -2,8 +2,10 @@
 
 namespace app\controllers;
 
+use app\models\History;
 use Yii;
 use yii\filters\AccessControl;
+use yii\httpclient\Client;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -97,21 +99,37 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays contact page.
+     * @param string $cur
      *
-     * @return Response|string
+     * @return string|Response
      */
-    public function actionContact()
+    public function actionSquare($cur = 'rub')
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
+        $client = new Client();
+        $response = $client->createRequest()
+                           ->setMethod('get')
+                           ->setUrl('https://api.coinmarketcap.com/v1/ticker/')
+                           ->setData(['convert' => $cur, 'limit' => 4])
+                           ->send();
+        if ($response->isOk) {
+            $model = [];
+            foreach($response->data as $ar) {
+                //var_dump($ar);//die;
+                $model[] = [
+                    'name'               => $ar['symbol'],
+                    'price'              => $ar[ 'price_' . $cur ],
+                    'market_cap'         => $ar[ 'market_cap_' . $cur ],
+                    'percent_change_1h'  => $ar['percent_change_1h'],
+                    'percent_change_24h' => $ar['percent_change_24h'],
+                    'percent_change_7d'  => $ar['percent_change_7d'],
+                ];
+            }
+            return $this->render('_square', [
+                'model' => $model,
+                'cur' => $cur
+            ]);
         }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
+        return false;
     }
 
     /**

@@ -113,3 +113,34 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+/****************************/
+.square{
+    width: 380px;
+    padding: 25px;
+    border: 1px solid;
+}
+.coins-list{
+    margin: 50px auto;
+}
+.date{
+    text-align: right;
+}
+tr.coin-row{
+    height: 43px;
+}
+.coin-name{
+    width: 135px;
+}
+.coin-value{
+    font-weight: bold;
+}
+.coin-row img{
+    width: 32px;
+}
+.up{
+    color: green;
+}
+.down{
+    color: red;
+}

@@ -58,4 +58,11 @@ class History extends \yii\db\ActiveRecord
             'updated' => 'Updated',
         ];
     }
+
+    public static $coins = [
+        ['BTC' => 'BitCoin'],
+        ['ETH' => 'Ethereum'],
+        ['XRP' => 'Ripple'],
+        ['LTC' => 'Litecoin']
+    ];
 }

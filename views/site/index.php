@@ -5,8 +5,10 @@
 use app\models\History;
 use phpnt\chartJS\ChartJs;
 use yii\helpers\ArrayHelper;
+use yii\httpclient\Client;
 
-$this->title = 'My Yii Application';
+$this->title = 'Graphics';
+
 $h = History::find()
             ->select(['name', "TIME_FORMAT(FROM_UNIXTIME(updated), '%H:%i') as updated", 'price_rub'])
             ->orderBy('id desc')
@@ -49,16 +51,9 @@ $ltc = [
         $dataSets[0]
     ]
 ];
+
 ?>
 <div class="site-about">
-<div class="square">
-    <p class="date"></p>
-    <div class="coins-list">
-        <div class="coin-row">
-            <img src="">
-        </div>
-    </div>
-</div>
 <?= ChartJs::widget([
     'type'  => ChartJs::TYPE_LINE,
     'data'  => $btc,
