@@ -99,40 +99,6 @@ class SiteController extends Controller
     }
 
     /**
-     * @param string $cur
-     *
-     * @return string|Response
-     */
-    public function actionSquare($cur = 'rub')
-    {
-        $client = new Client();
-        $response = $client->createRequest()
-                           ->setMethod('get')
-                           ->setUrl('https://api.coinmarketcap.com/v1/ticker/')
-                           ->setData(['convert' => $cur, 'limit' => 4])
-                           ->send();
-        if ($response->isOk) {
-            $model = [];
-            foreach($response->data as $ar) {
-                //var_dump($ar);//die;
-                $model[] = [
-                    'name'               => $ar['symbol'],
-                    'price'              => $ar[ 'price_' . $cur ],
-                    'market_cap'         => $ar[ 'market_cap_' . $cur ],
-                    'percent_change_1h'  => $ar['percent_change_1h'],
-                    'percent_change_24h' => $ar['percent_change_24h'],
-                    'percent_change_7d'  => $ar['percent_change_7d'],
-                ];
-            }
-            return $this->render('_square', [
-                'model' => $model,
-                'cur' => $cur
-            ]);
-        }
-        return false;
-    }
-
-    /**
      * Displays about page.
      *
      * @return string

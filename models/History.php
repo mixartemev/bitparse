@@ -66,10 +66,17 @@ class History extends \yii\db\ActiveRecord
         ['LTC' => 'Litecoin']
     ];
 
-    public static $currencies = [
+    public static $curs = [
         'rub',
         'gbp',
         'eur',
-        'jpy'
+        'jpy',
+    ];
+    public static $currencies = [
+        'rub' => '₽',
+        'gbp' => '£',
+        'eur' => '€',
+        'jpy' => '¥',
+        'usd' => '$'
     ];
 }
