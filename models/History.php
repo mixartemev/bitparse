@@ -65,4 +65,11 @@ class History extends \yii\db\ActiveRecord
         ['XRP' => 'Ripple'],
         ['LTC' => 'Litecoin']
     ];
+
+    public static $currencies = [
+        'rub',
+        'gbp',
+        'eur',
+        'jpy'
+    ];
 }

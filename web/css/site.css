@@ -116,9 +116,11 @@ a.desc:after {
 
 /****************************/
 .square{
-    width: 380px;
+    width: 370px;
     padding: 25px;
     border: 1px solid;
+    margin: 5px;
+    float: left;
 }
 .coins-list{
     margin: 50px auto;
@@ -127,7 +129,7 @@ a.desc:after {
     text-align: right;
 }
 tr.coin-row{
-    height: 43px;
+    height: 45px;
 }
 .coin-name{
     width: 135px;
@@ -143,4 +145,14 @@ tr.coin-row{
 }
 .down{
     color: red;
+}
+.cap{
+    text-align: center;
+    margin: -20px auto 20px;
+}
+.courses{
+    width: 70%;
+    margin: -10px auto 10px;
+    line-height: 1;
+    text-align: center;
 }
