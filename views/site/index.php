@@ -50,7 +50,15 @@ $ltc = [
     ]
 ];
 ?>
-    <div class="site-about">
+<div class="site-about">
+<div class="square">
+    <p class="date"></p>
+    <div class="coins-list">
+        <div class="coin-row">
+            <img src="">
+        </div>
+    </div>
+</div>
 <?= ChartJs::widget([
     'type'  => ChartJs::TYPE_LINE,
     'data'  => $btc,
@@ -80,3 +88,4 @@ $ltc = [
     'options'   => []
 ]);
 ?>
+</div>
