@@ -3,6 +3,8 @@
 /* @var string $cur */
 /* @var string $type */
 /* @var array $courses */
+/* @var bool $withCourses */
+/* @var string $period */
 
 use app\models\History;
 ?>
@@ -20,7 +22,7 @@ use app\models\History;
 			</td>
 			<td class="coin-value">
 				<span class="price"><?= History::$currencies[$cur] . Yii::$app->formatter->asDecimal($model[$k][$type], 2) ?></span>
-				<span class="charge <?= $model[$k]['percent_change_24h'] > 0 ? 'up' : 'down' ?>">(<?= $model[$k]['percent_change_24h'] ?>%)</span>
+				<span class="charge <?= $model[$k]['percent_change_' . $period] > 0 ? 'up' : 'down' ?>">(<?= $model[$k]['percent_change_' . $period] ?>%)</span>
 			</td>
 		</tr>
 	<?php } ?>
@@ -31,8 +33,12 @@ use app\models\History;
 <?php } ?>
 	</div>
 	<div class="courses">
-<?php foreach($courses as $k => $course){
+<?php
+if($withCourses){
+	foreach($courses as $k => $course){
 		echo strtoupper($k) .' '. $course . " &nbsp; &nbsp; ";
-	} ?>
+	}
+}
+ ?>
 	</div>
 </div>

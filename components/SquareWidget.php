@@ -17,6 +17,8 @@ class SquareWidget extends Widget
 
 	public $withCourses = true;
 
+	public $period = '24h';
+
 	public function run()
 	{
 		$model = [];
@@ -65,6 +67,7 @@ class SquareWidget extends Widget
 			'type' => $this->type,
 			'withCourses' => $this->withCourses,
 			'courses' => $courses,
+			'period' => $this->period
 		]);
 	}
 }

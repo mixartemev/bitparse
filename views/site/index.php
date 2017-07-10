@@ -56,9 +56,9 @@ $ltc = [
 <div class="site-about">
     <?= app\components\SquareWidget::widget() ?>
     <?= app\components\SquareWidget::widget(['cur' => 'usd']) ?>
-    <?= app\components\SquareWidget::widget(['cur' => 'eur']) ?>
-    <?= app\components\SquareWidget::widget(['cur' => 'jpy']) ?>
-    <?= app\components\SquareWidget::widget(['cur' => 'usd', 'type' => 'cap', 'withCourses' => false]) ?>
+    <?= app\components\SquareWidget::widget(['cur' => 'eur', 'period' => '1h']) ?>
+    <?= app\components\SquareWidget::widget(['cur' => 'jpy', 'period' => '7d']) ?>
+    <?= app\components\SquareWidget::widget(['cur' => 'usd', 'type' => 'cap'/*, 'withCourses' => false*/]) ?>
     <?= ChartJs::widget([
     'type'  => ChartJs::TYPE_LINE,
     'data'  => $btc,
