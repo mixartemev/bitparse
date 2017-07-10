@@ -32,7 +32,7 @@ use app\models\History;
 	</div>
 	<div class="courses">
 <?php foreach($courses as $k => $course){
-		echo strtoupper(History::$curs[$k]) .' '. $course . " &nbsp; &nbsp; ";
+		echo strtoupper($k) .' '. $course . " &nbsp; &nbsp; ";
 	} ?>
 	</div>
 </div>

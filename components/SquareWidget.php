@@ -2,6 +2,7 @@
 
 namespace app\components;
 
+use app\models\History;
 use yii\base\Widget;
 use yii\httpclient\Client;
 
@@ -14,14 +15,13 @@ class SquareWidget extends Widget
 
 	public $cur = 'rub';
 
-	public $withCourses = false;
+	public $withCourses = true;
 
-	public $model = [];
-	public $courses = [];
-
-	public function init()
+	public function run()
 	{
-		parent::init();
+		$model = [];
+		$courses = [];
+		$currencies = History::$currencies;
 		$client = new Client();
 		$response = $client->createRequest()
 		                   ->setMethod('get')
@@ -30,7 +30,7 @@ class SquareWidget extends Widget
 		                   ->send();
 		if ($response->isOk) {
 			foreach($response->data as $ar) {
-				$this->model[] = [
+				$model[] = [
 					'name'               => $ar['symbol'],
 					'price'              => $ar[ 'price_' . $this->cur ],
 					'cap'         => $ar[ 'market_cap_' . $this->cur ],
@@ -41,29 +41,30 @@ class SquareWidget extends Widget
 			}
 		}
 		if($this->withCourses){
+			unset($currencies[$this->cur]);
+			foreach($currencies as $k => &$val){
+				$val = strtoupper($this->cur . $k);
+			};
 			$response = $client->createRequest()
 			                   ->setMethod('get')
 			                   ->setUrl('https://query.yahooapis.com/v1/public/yql')
 			                   ->setData([
-				                   'q' => 'select Rate from yahoo.finance.xchange where pair="USDRUB,USDGBP,USDEUR,USDJPY"',
+				                   'q' => 'select Rate from yahoo.finance.xchange where pair="'.implode(',', $currencies).'"',
 				                   'env' => 'store://datatables.org/alltableswithkeys',
 			                   ])
 			                   ->send();
 			if ($response->isOk) {
-				foreach($response->data['results']['rate'] as $ar) {
-					$this->courses[] = $ar['Rate'];
+				foreach($response->data['results']['rate'] as $k => $ar) {
+					$courses[array_keys($currencies)[$k]] = $ar['Rate'];
 				}
 			}
 		}
-	}
-
-	public function run()
-	{
 		return $this->render('_square', [
-			'model' => $this->model,
+			'model' => $model,
 			'cur' => $this->cur,
 			'type' => $this->type,
-			'courses' => $this->courses,
+			'withCourses' => $this->withCourses,
+			'courses' => $courses,
 		]);
 	}
 }
