@@ -21,7 +21,7 @@ use app\models\History;
 				<img src="img/<?= $model[$k]['name'] ?>.png"> &nbsp; <?= $coin[$model[$k]['name']] ?>
 			</td>
 			<td class="coin-value">
-				<span class="price"><?= History::$currencies[$cur] . Yii::$app->formatter->asDecimal($model[$k][$type], 2) ?></span>
+				<span class="price"><?= History::$currencies[$cur] . Yii::$app->formatter->asDecimal($model[$k][$type], $type=='cap'?0:2) ?></span>
 				<span class="charge <?= $model[$k]['percent_change_' . $period] > 0 ? 'up' : 'down' ?>">(<?= $model[$k]['percent_change_' . $period] ?>%)</span>
 			</td>
 		</tr>
@@ -29,7 +29,7 @@ use app\models\History;
 	</table>
 	<div class="cap">
 <?php if($type == 'cap'){ ?>
-		<b>Market Cap All Coins:</b> <?= History::$currencies[$cur] . Yii::$app->formatter->asDecimal($cap_summ) ?>
+		<b>Market Cap All Coins:</b> <?= History::$currencies[$cur] . Yii::$app->formatter->asDecimal($cap_summ, 0) ?>
 <?php } ?>
 	</div>
 	<div class="courses">
