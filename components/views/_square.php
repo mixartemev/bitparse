@@ -7,9 +7,10 @@
 /* @var string $period */
 
 use app\models\History;
+$prd = ['24h' => 'day', '1h' => 'hour', '7d' => 'week']
 ?>
 <div class="square">
-	<p class="date"><?= date('d M Y')?></p>
+	<p class="date"><?= date('d M Y')?><br><span class="cap-sum"><?= $prd[$period] ?></span></p>
 	<table class="coins-list">
 	<?php
 	$cap_summ = 0;
