@@ -13,10 +13,12 @@ use app\models\History;
 	<table class="coins-list">
 	<?php
 	$cap_summ = 0;
+	$cap_charge_summ = 0;
 	foreach(History::$coins as $k => $coin){
 		if($type=='cap'){
 			$cap_summ += $model[$k][$type];
 			$charge = $cap_charge_24h[$k];
+			$cap_charge_summ += $charge;
 		}else{
 			$charge = $model[$k]['percent_change_' . $period];
 		}
@@ -35,12 +37,12 @@ use app\models\History;
 	</table>
 	<div class="cap">
 <?php if($type == 'cap'){ ?>
-		<b>Market Cap All Coins:</b> <?= History::$currencies[$cur] . Yii::$app->formatter->asDecimal($cap_summ, 0) ?>
+		<b>Market Cap All Coins:</b> <?= History::$currencies[$cur] . Yii::$app->formatter->asDecimal($cap_summ, 0) ?> / <span class="cap-sum"><?= Yii::$app->formatter->asDecimal($cap_charge_summ) ?>%</span>
 <?php } ?>
 	</div>
 	<div class="courses">
 <?php
-if($cap_charge_24h){
+if($withCourses){
 	foreach($courses as $k => $course){
 		echo strtoupper($k) .' '. Yii::$app->formatter->asDecimal($course, 4) . " &nbsp; &nbsp; ";
 	}

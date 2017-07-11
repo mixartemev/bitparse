@@ -67,6 +67,7 @@ class SquareWidget extends Widget
 			'model' => $model,
 			'cur' => $this->cur,
 			'type' => $this->type,
+			'withCourses' => $this->withCourses,
 			'cap_charge_24h' => $cap_charge_24h,
 			'courses' => $currencies,
 			'period' => $this->period

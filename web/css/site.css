@@ -150,6 +150,9 @@ tr.coin-row{
     text-align: center;
     margin: -20px auto 20px;
 }
+.cap-sum{
+    font-size: 85%;
+}
 .courses{
     width: 68%;
     margin: -10px auto 10px;
