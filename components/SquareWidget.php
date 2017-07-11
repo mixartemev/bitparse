@@ -2,7 +2,9 @@
 
 namespace app\components;
 
+use app\models\Course;
 use app\models\History;
+use Yii;
 use yii\base\Widget;
 use yii\httpclient\Client;
 
@@ -22,7 +24,6 @@ class SquareWidget extends Widget
 	public function run()
 	{
 		$model = [];
-		$courses = [];
 		$currencies = History::$currencies;
 		$client = new Client();
 		$response = $client->createRequest()
@@ -44,20 +45,21 @@ class SquareWidget extends Widget
 		}
 		if($this->withCourses){
 			unset($currencies[$this->cur]);
-			foreach($currencies as $k => &$val){
-				$val = strtoupper($this->cur . $k);
-			};
-			$response = $client->createRequest()
-			                   ->setMethod('get')
-			                   ->setUrl('https://query.yahooapis.com/v1/public/yql')
-			                   ->setData([
-				                   'q' => 'select Rate from yahoo.finance.xchange where pair="'.implode(',', $currencies).'"',
-				                   'env' => 'store://datatables.org/alltableswithkeys',
-			                   ])
-			                   ->send();
+			$c = Course::findOne(1);
+				foreach($currencies as $k => &$val){
+					if($this->cur != 'usd'){
+						$val = ($k != 'usd'	? $c->$k : 1) / $c->{$this->cur} ;
+					}else{
+						$val = $c->$k;
+					}
+				}
+		}
+		$cap_charge_24h = [];
+		if($this->type == 'cap'){
+			$response = $client->createRequest()->setMethod('get')->setUrl('http://coincap.io/front')->send();
 			if ($response->isOk) {
-				foreach($response->data['results']['rate'] as $k => $ar) {
-					$courses[array_keys($currencies)[$k]] = $ar['Rate'];
+				foreach(array_keys(History::$coins) as $k => $coin){
+					$cap_charge_24h[$coin] = $response->data[$k]['perc'];
 				}
 			}
 		}
@@ -65,8 +67,8 @@ class SquareWidget extends Widget
 			'model' => $model,
 			'cur' => $this->cur,
 			'type' => $this->type,
-			'withCourses' => $this->withCourses,
-			'courses' => $courses,
+			'cap_charge_24h' => $cap_charge_24h,
+			'courses' => $currencies,
 			'period' => $this->period
 		]);
 	}

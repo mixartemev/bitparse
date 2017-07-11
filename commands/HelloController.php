@@ -7,8 +7,10 @@
 
 namespace app\commands;
 
+use app\models\Course;
 use app\models\History;
 use yii\console\Controller;
+use yii\db\Expression;
 use yii\httpclient\Client;
 
 /**
@@ -46,6 +48,31 @@ class HelloController extends Controller
                     'market_cap_rub' => $ar['market_cap_rub'],
                     'updated' => (int) $ar['last_updated'],
                 ]))->save();
+            }
+        }
+    }
+
+    public function actionCurs()
+    {
+        $client = new Client();
+        $currencies = ['RUB','EUR','GBP','JPY'];
+        $response = $client->createRequest()
+                           ->setMethod('get')
+                           ->setUrl('https://query.yahooapis.com/v1/public/yql')
+                           ->setData([
+                               'q' => 'select Rate from yahoo.finance.xchange where pair="'.implode(',', $currencies).'"',
+                               'env' => 'store://datatables.org/alltableswithkeys',
+                           ])
+                           ->send();
+        if ($response->isOk) {
+            foreach($response->data['results']['rate'] as $k => $ar) {
+                $model = Course::findOne(1);
+                    $model->rub = $response->data['results']['rate'][0]['Rate'];
+                    $model->eur = $response->data['results']['rate'][1]['Rate'];
+                    $model->gbp = $response->data['results']['rate'][2]['Rate'];
+                    $model->jpy = $response->data['results']['rate'][3]['Rate'];
+                    $model->day = new Expression('now()');
+                $model->save();
             }
         }
     }
