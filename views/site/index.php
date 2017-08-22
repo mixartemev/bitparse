@@ -78,16 +78,16 @@ $ltc = [
     'options'   => []
 ]);
 ?>
-<?= ''/*ChartJs::widget([
+<?= ChartJs::widget([
     'type'  => ChartJs::TYPE_LINE,
     'data'  => $xrp,
     'options'   => []
 ]);
-*/?>
-<?= ''/* ChartJs::widget([
+?>
+<?=  ChartJs::widget([
     'type'  => ChartJs::TYPE_LINE,
     'data'  => $ltc,
     'options'   => []
-]);*/
+]);
 ?>
 </div>
