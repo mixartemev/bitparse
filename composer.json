@@ -12,6 +12,12 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
+    "repositories":[
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
     "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0",
@@ -19,7 +25,8 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "yiisoft/yii2-httpclient": "~2.0.0",
-        "phpnt/yii2-chartjs": "*"
+        "phpnt/yii2-chartjs": "*",
+        "mikehaertl/phpwkhtmltopdf": "^2.2"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
@@ -31,18 +38,16 @@
         "codeception/specify": "~0.4.3"
     },
     "config": {
-        "process-timeout": 1800,
-        "fxp-asset":{
-            "installer-paths": {
-                "npm-asset-library": "vendor/npm",
-                "bower-asset-library": "vendor/bower"
-            }
-        }
+        "process-timeout": 1800
     },
     "scripts": {
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject"
-        ]
+        ],
+        "post-install-cmd" : [
+            "@bowerLink"
+        ],
+        "bowerLink" : "[ -d vendor/bower ] || ln -s bower-asset vendor/bower"
     },
     "extra": {
         "yii\\composer\\Installer::postCreateProject": {
