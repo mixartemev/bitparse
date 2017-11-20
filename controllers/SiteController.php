@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\SquareWidget;
 use app\models\History;
 use Yii;
 use yii\filters\AccessControl;
@@ -56,14 +57,18 @@ class SiteController extends Controller
         ];
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionIndex()
+	/**
+	 * Displays homepage.
+	 * @param null $var
+	 * @return string
+	 */
+    public function actionIndex($var = null)
     {
-        return $this->render('index');
+    	if(!$var){
+		    return $this->render('index');
+	    }elseif($var==1){
+    		return $this->renderContent(SquareWidget::widget());
+	    }
     }
 
     /**
