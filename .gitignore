@@ -30,4 +30,4 @@ tests/_output/*
 tests/_support/_generated
 composer.lock
 yii.bat
-config/db.php
+/config/db.php
