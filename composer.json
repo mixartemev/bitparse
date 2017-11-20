@@ -26,7 +26,8 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "yiisoft/yii2-httpclient": "~2.0.0",
         "phpnt/yii2-chartjs": "*",
-        "mikehaertl/phpwkhtmltopdf": "^2.2"
+        "mikehaertl/phpwkhtmltopdf": "^2.2",
+        "jonnyw/php-phantomjs": "4.*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

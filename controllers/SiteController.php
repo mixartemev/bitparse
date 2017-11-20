@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\components\SquareWidget;
 use app\models\History;
+use JonnyW\PhantomJs\Client as ClientPh;
+use mikehaertl\wkhtmlto\Image;
 use Yii;
 use yii\filters\AccessControl;
 use yii\httpclient\Client;
@@ -64,12 +66,40 @@ class SiteController extends Controller
 	 */
     public function actionIndex($var = null)
     {
-    	if(!$var){
-		    return $this->render('index');
-	    }elseif($var==1){
+    	if($var==1){
+    		$this->layout = 'clean';
     		return $this->renderContent(SquareWidget::widget());
+	    }else{
+    		return $this->render('index');
 	    }
     }
+
+	public function actionImg($var)
+	{
+		$client = ClientPh::getInstance();
+
+		$width  = 800;
+		$height = 600;
+		$top    = 0;
+		$left   = 0;
+
+		/**
+		 * @see \JonnyW\PhantomJs\Http\CaptureRequest
+		 **/
+		$request = $client->getMessageFactory()->createCaptureRequest('http://jonnyw.me', 'GET');
+		$request->setOutputFile('file.jpg');
+		$request->setViewportSize($width, $height);
+		$request->setCaptureDimensions($width, $height, $top, $left);
+
+		/**
+		 * @see \JonnyW\PhantomJs\Http\Response
+		 **/
+		$response = $client->getMessageFactory()->createResponse();
+
+		// Send the request
+		$client->send($request, $response);
+
+	}
 
     /**
      * Login action.
