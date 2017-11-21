@@ -115,12 +115,14 @@ a.desc:after {
 }
 
 /****************************/
-.square{
-    width: 370px;
-    padding: 25px;
+.container .square{
     border: 1px solid;
     margin: 5px;
     float: left;
+}
+.square{
+    width: 370px;
+    padding: 25px;
 }
 .coins-list{
     margin: 50px auto;
