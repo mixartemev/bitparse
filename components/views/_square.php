@@ -58,11 +58,6 @@ $prd = ['24h' => 'day', '1h' => 'hour', '7d' => 'week']
                         <td><?= strtoupper($k) ?></td>
 		            <?php }
 	            } ?>
-                <td>GBR</td>
-                <td>EUR</td>
-                <td>USD</td>
-                <td>JPY</td>
-            </tr>
             <tr class="table-ch__currency-num">
 	            <?php if($withCourses){
 		            foreach($courses as $k => $course){ ?>
