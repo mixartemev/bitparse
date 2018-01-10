@@ -62,8 +62,8 @@ class History extends \yii\db\ActiveRecord
     public static $coins = [
         ['BTC' => 'BitCoin'],
         ['ETH' => 'Ethereum'],
-        ['BCH' => 'Bitcoin Cash'],
-        ['XRP' => 'Ripple'],
+	    ['XRP' => 'Ripple'],
+	    ['BCH' => 'Bitcoin Cash'],
         //['LTC' => 'Litecoin'],
         //['DASH' => 'Dash']
     ];

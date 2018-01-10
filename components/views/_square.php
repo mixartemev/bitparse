@@ -39,17 +39,6 @@ $prd = ['24h' => 'day', '1h' => 'hour', '7d' => 'week']
                     <span class="b-map__label <?= $charge > 0 ? 'green' : 'red' ?> b-map__diff-coin"><?= Yii::$app->formatter->asDecimal($charge) ?>% / 54742.43</span>
                 </td>
             </tr>
-
-            <tr class="coin-row">
-                <td class="coin-name">
-                    <img src="img/<?= $model[$k]['name'] ?>.png"> &nbsp;
-				    <?= $coin[$model[$k]['name']] ?>
-                </td>
-                <td class="coin-value">
-                    <span class="price"></span>
-                    <span class="charge ">(%)</span>
-                </td>
-            </tr>
 		    <?php
 		    //}
 	    } ?>
@@ -69,11 +58,6 @@ $prd = ['24h' => 'day', '1h' => 'hour', '7d' => 'week']
                         <td><?= strtoupper($k) ?></td>
 		            <?php }
 	            } ?>
-                <td>GBR</td>
-                <td>EUR</td>
-                <td>USD</td>
-                <td>JPY</td>
-            </tr>
             <tr class="table-ch__currency-num">
 	            <?php if($withCourses){
 		            foreach($courses as $k => $course){ ?>

@@ -1,163 +1,116 @@
-html,
-body {
-    height: 100%;
-}
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400");
+@import url("https://fonts.googleapis.com/css?family=Play");
+* {
+  margin: 0;
+  padding: 0; }
+
+.clearfix {
+  display: block; }
+
+.clearfix:after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0;
+  content: ".";
+  line-height: 0; }
+
+* html .clearfix {
+  height: 1%; }
 
 .wrap {
-    min-height: 100%;
-    height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
+  width: 470px;
+  height: 470px;
+  font-family: 'Lato', sans-serif;
+  margin: 0 auto;
+  background: #9033e8;
 }
 
-.wrap > .container {
-    padding: 70px 15px 20px;
-}
+.text-center {
+  text-align: center; }
 
-.footer {
-    height: 60px;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
-}
-
-.jumbotron {
-    text-align: center;
-    background-color: transparent;
-}
-
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-}
-
-.not-set {
-    color: #c55;
-    font-style: italic;
-}
-
-/* add sorting icons to gridview sort links */
-a.asc:after, a.desc:after {
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    padding-left: 5px;
-}
-
-a.asc:after {
-    content: /*"\e113"*/ "\e151";
-}
-
-a.desc:after {
-    content: /*"\e114"*/ "\e152";
-}
-
-.sort-numerical a.asc:after {
-    content: "\e153";
-}
-
-.sort-numerical a.desc:after {
-    content: "\e154";
-}
-
-.sort-ordinal a.asc:after {
-    content: "\e155";
-}
-
-.sort-ordinal a.desc:after {
-    content: "\e156";
-}
-
-.grid-view th {
-    white-space: nowrap;
-}
-
-.hint-block {
-    display: block;
-    margin-top: 5px;
-    color: #999;
-}
-
-.error-summary {
-    color: #a94442;
-    background: #fdf7f7;
-    border-left: 3px solid #eed3d7;
-    padding: 10px 20px;
-    margin: 0 0 15px 0;
-}
-
-/* align the logout "link" (button in form) of the navbar */
-.nav li > form > button.logout {
-    padding: 15px;
-    border: none;
-}
-
-@media(max-width:767px) {
-    .nav li > form > button.logout {
-        display:block;
-        text-align: left;
-        width: 100%;
-        padding: 10px 15px;
-    }
-}
-
-.nav > li > form > button.logout:focus,
-.nav > li > form > button.logout:hover {
-    text-decoration: none;
-}
-
-.nav > li > form > button.logout:focus {
-    outline: none;
-}
-
-/****************************/
-.container .square{
-    border: 1px solid;
-    margin: 5px;
-    float: left;
-}
-.square{
-    width: 370px;
-    padding: 25px;
-}
-.coins-list{
-    margin: 50px auto;
-}
-.date{
+.b-map {
+  background-image: url("/img/map.png");
+  background-position: center top;
+  -moz-background-size: contain;
+       background-size: contain;
+  background-repeat: no-repeat;
+  color: #fff;
+  padding-top: 48px;
+  padding-bottom: 48px; }
+  .b-map__year {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 28px; }
+  .b-map__month {
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 48px; }
+  .b-map__table {
+    width: 376px;
+    margin: 22px auto 0; }
+    .b-map__table tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.34); }
+      .b-map__table tr:last-child {
+        border-bottom: 0; }
+    .b-map__table td {
+      padding: 9px 0px 11px;
+      white-space: nowrap; }
+      .b-map__table td span, .b-map__table td img {
+        display: inline-block;
+        vertical-align: middle; }
+      .b-map__table td img {
+        position: relative;
+        top: 3px;
+        margin-right: 11px; }
+  .b-map__table-first {
+    text-align: left; }
+  .b-map__table-last {
     text-align: right;
-}
-tr.coin-row{
-    height: 45px;
-}
-.coin-name{
-    width: 135px;
-}
-.coin-value{
-    font-weight: bold;
-}
-.coin-row img{
-    width: 32px;
-}
-.up{
-    color: green;
-}
-.down{
-    color: red;
-}
-.cap{
-    text-align: center;
-    margin: -20px auto 20px;
-}
-.cap-sum{
-    font-size: 85%;
-}
-.courses{
-    width: 68%;
-    margin: -10px auto 10px;
-    line-height: 1;
-    text-align: center;
-}
+    position: relative;
+    top: 2px; }
+  .b-map__name-coin {
+    letter-spacing: 0.4px;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400; }
+  .b-map__label {
+    height: 28px;
+    -webkit-border-radius: 14px;
+       -moz-border-radius: 14px;
+            border-radius: 14px;
+    background-color: #ffffff;
+    line-height: 28px;
+    color: #000;
+    padding: 0 8px;
+    margin-left: 4px; }
+    .b-map__label.red {
+      color: #ce3920; }
+    .b-map__label.green {
+      color: #20ce99; }
+  .b-map__num-coin {
+    font-size: 14px;
+    letter-spacing: 0.35px; }
+  .b-map__diff-coin {
+    font-size: 14px;
+    letter-spacing: 0.3px; }
+  .b-map__charts {
+    height: 87px;
+    background-color: #a151eb; }
+
+.table-ch {
+  text-align: center;
+  margin: 28px auto 0; }
+  .table-ch td {
+    padding: 0 10px; }
+  .table-ch__currency-name {
+    font-size: 12px;
+    font-weight: 400; }
+    .table-ch__currency-name td {
+      padding-top: 19px; }
+  .table-ch__currency-num {
+    font-weight: 300;
+    letter-spacing: 0.8px;
+    font-size: 16px; }
+    .table-ch__currency-num td {
+      padding-top: 11px; }
