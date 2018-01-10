@@ -859,7 +859,7 @@ class Instagram
   {
       $inbox = $this->request('direct_v2/inbox/?');
 
-      if ($inbox['status'] != 'ok') {
+      if (@$inbox['status'] != 'ok') {
 
           return;
       }
