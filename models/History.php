@@ -69,7 +69,7 @@ class History extends \yii\db\ActiveRecord
     ];
 
     public static $currencies = [
-        'rub' => '₽',
+        'rub' => 'P',
         'gbp' => '£',
         'eur' => '€',
         'jpy' => '¥',
