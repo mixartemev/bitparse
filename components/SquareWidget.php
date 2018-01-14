@@ -15,7 +15,7 @@ class SquareWidget extends Widget
 
 	public $type = 'price';
 
-	public $cur = 'rub';
+	public $cur = 'usd';
 
 	public $withCourses = true;
 
@@ -40,6 +40,7 @@ class SquareWidget extends Widget
 					'percent_change_1h'  => $ar['percent_change_1h'],
 					'percent_change_24h' => $ar['percent_change_24h'],
 					'percent_change_7d'  => $ar['percent_change_7d'],
+					'usd_change_24h' => (float)$ar['price_usd'] - (float)History::find()->where("name = '$ar[symbol]' AND DAY(`updated`) = DAY(NOW())-1 AND MONTH(`updated`) = MONTH(NOW()) AND YEAR(`updated`) = YEAR(NOW())")->one()->price_usd,
 				];
 			}
 		}

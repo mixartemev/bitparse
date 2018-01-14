@@ -35,8 +35,9 @@ class History extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['price_usd', 'price_rub', 'price_btc', 'volume24h_usd', 'volume24h_rub', 'market_cap_usd', 'market_cap_rub', 'updated'], 'number'],
+            [['price_usd', 'price_rub', 'price_btc', 'volume24h_usd', 'volume24h_rub', 'market_cap_usd', 'market_cap_rub', 'percent_change_24h', 'usd_change_24h'], 'number'],
             [['name'], 'string', 'max' => 255],
+            [['updated'], 'safe'],
         ];
     }
 

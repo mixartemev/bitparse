@@ -19,6 +19,7 @@ $prd = ['24h' => 'day', '1h' => 'hour', '7d' => 'week']
 	    $cap_charge_summ = 0;
 	    //var_dump($model);die;
 	    foreach(History::$coins as $k => $coin){
+	        //print_r(History::find()->where("name = $k AND DAY(`updated`) = DAY(NOW())-1 AND MONTH(`updated`) = MONTH(NOW()) AND YEAR(`updated`) = YEAR(NOW())")->one()->price_usd);die;
 		    //if($k!=2){
 		    if($type=='cap'){
 			    $cap_summ += $model[$k][$type];
@@ -35,8 +36,8 @@ $prd = ['24h' => 'day', '1h' => 'hour', '7d' => 'week']
                     <span class="b-map__name-coin"><?= $coin[$model[$k]['name']] ?></span>
                 </td>
                 <td class="b-map__table-last">
-                    <span class="b-map__num-coin"><span class="b-rub"><?= History::$currencies[$cur] ?></span><?= Yii::$app->formatter->asDecimal($model[$k][$type]/*, $type=='cap'?0:2*/) ?></span>
-                    <span class="b-map__label <?= $charge > 0 ? 'green' : 'red' ?> b-map__diff-coin"><?= Yii::$app->formatter->asDecimal($charge) ?>% / 54742.43</span>
+                    <span class="b-map__num-coin"><!--<span class="b-rub">--><?= History::$currencies[$cur] ?><!--</span>--> <?= Yii::$app->formatter->asDecimal($model[$k][$type]/*, $type=='cap'?0:2*/) ?></span>
+                    <span class="b-map__label <?= $charge > 0 ? 'green' : 'red' ?> b-map__diff-coin"><?= Yii::$app->formatter->asDecimal($charge) ?>% / <?= Yii::$app->formatter->asDecimal($model[$k]['usd_change_24h']) ?></span>
                 </td>
             </tr>
 		    <?php

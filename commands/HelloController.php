@@ -37,17 +37,23 @@ class HelloController extends Controller
         if ($response->isOk) {
             foreach($response->data as $ar){
                 /** @var History $ar */
-                (new History([
-                    'name' => $ar['symbol'],
-                    'price_usd' => $ar['price_usd'],
-                    'price_rub' => $ar['price_rub'],
-                    'price_btc' => $ar['price_btc'],
-                    'volume24h_usd' => $ar['24h_volume_usd'],
-                    'volume24h_rub' => $ar['24h_volume_rub'],
-                    'market_cap_usd' => $ar['market_cap_usd'],
-                    'market_cap_rub' => $ar['market_cap_rub'],
-                    'updated' => (int) $ar['last_updated'],
-                ]))->save();
+                $h = new History([
+	                'name' => $ar['symbol'],
+	                'price_usd' => $ar['price_usd'],
+	                'price_rub' => $ar['price_rub'],
+	                'price_btc' => $ar['price_btc'],
+	                'volume24h_usd' => $ar['24h_volume_usd'],
+	                'volume24h_rub' => $ar['24h_volume_rub'],
+	                'market_cap_usd' => $ar['market_cap_usd'],
+	                'market_cap_rub' => $ar['market_cap_rub'],
+	                'percent_change_24h' => $ar['percent_change_24h'],
+	                'usd_change_24h' => (float)$ar['price_usd'] - (float)History::find()->where(['name' => $ar['symbol']])->orderBy(['updated' => SORT_DESC])->one()->price_usd,
+	                'updated' => date('Y-m-d', (int)$ar['last_updated']),
+                ]);
+
+                if(!$h->save()){
+                	print_r($h->errors);
+                }
             }
         }
     }

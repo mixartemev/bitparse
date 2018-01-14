@@ -1,35 +1,36 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400&subset=latin-ext");
 @import url("https://fonts.googleapis.com/css?family=Play");
+
 @font-face {
-  font-family: 'ALSRubl-Verdana';
-  src: url('/css/b-rub_verdana/alsrubl-verdana-regular.eot');
-  src: url('/css/b-rub_verdana/alsrubl-verdana-regular.eot?#iefix') format('embedded-opentype'),url('/css/b-rub_verdana/alsrubl-verdana-regular.woff') format('woff'), url('/css/b-rub_verdana/alsrubl-verdana-regular.ttf') format('truetype'), url('/css/b-rub_verdana/alsrubl-verdana-regular.svg#ALSRublRegular') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'ALSRubl-Verdana';
+    src: url('/css/b-rub_verdana/alsrubl-verdana-regular.eot');
+    src: url('/css/b-rub_verdana/alsrubl-verdana-regular.eot?#iefix') format('embedded-opentype'), url('/css/b-rub_verdana/alsrubl-verdana-regular.woff') format('woff'), url('/css/b-rub_verdana/alsrubl-verdana-regular.ttf') format('truetype'), url('/css/b-rub_verdana/alsrubl-verdana-regular.svg#ALSRublRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'ALSRubl-Verdana';
-  src: url('/css/b-rub_verdana/alsrubl-verdana-italic.eot');
-  src: url('/css/b-rub_verdana/alsrubl-verdana-italic.eot?#iefix') format('embedded-opentype'), url('/css/b-rub_verdana/alsrubl-verdana-italic.woff') format('woff'), url('/css/b-rub_verdana/alsrubl-verdana-italic.ttf') format('truetype'), url('/css/b-rub_verdana/alsrubl-verdana-italic.svg#ALSRublItalic') format('svg');
-  font-weight: normal;
-  font-style: italic;
+    font-family: 'ALSRubl-Verdana';
+    src: url('/css/b-rub_verdana/alsrubl-verdana-italic.eot');
+    src: url('/css/b-rub_verdana/alsrubl-verdana-italic.eot?#iefix') format('embedded-opentype'), url('/css/b-rub_verdana/alsrubl-verdana-italic.woff') format('woff'), url('/css/b-rub_verdana/alsrubl-verdana-italic.ttf') format('truetype'), url('/css/b-rub_verdana/alsrubl-verdana-italic.svg#ALSRublItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: 'ALSRubl-Verdana';
-  src: url('/css/b-rub_verdana/alsrubl-verdana-bold.eot');
-  src: url('/css/b-rub_verdana/alsrubl-verdana-bold.eot?#iefix') format('embedded-opentype'), url('/css/b-rub_verdana/alsrubl-verdana-bold.woff') format('woff'), url('/css/b-rub_verdana/alsrubl-verdana-bold.ttf') format('truetype'), url('/css/b-rub_verdana/alsrubl-verdana-bold.svg#ALSRublBold') format('svg');
-  font-weight: bold;
-  font-style: normal;
+    font-family: 'ALSRubl-Verdana';
+    src: url('/css/b-rub_verdana/alsrubl-verdana-bold.eot');
+    src: url('/css/b-rub_verdana/alsrubl-verdana-bold.eot?#iefix') format('embedded-opentype'), url('/css/b-rub_verdana/alsrubl-verdana-bold.woff') format('woff'), url('/css/b-rub_verdana/alsrubl-verdana-bold.ttf') format('truetype'), url('/css/b-rub_verdana/alsrubl-verdana-bold.svg#ALSRublBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'ALSRubl-Verdana';
-  src: url('/css/b-rub_verdana/alsrubl-verdana-bolditalic.eot');
-  src: url('/css/b-rub_verdana/alsrubl-verdana-bolditalic.eot?#iefix') format('embedded-opentype'), url('/css/b-rub_verdana/alsrubl-verdana-bolditalic.woff') format('woff'), url('/css/b-rub_verdana/alsrubl-verdana-bolditalic.ttf') format('truetype'), url('/css/b-rub_verdana/alsrubl-verdana-bolditalic.svg#ALSRublBoldItalic') format('svg');
-  font-weight: bold;
-  font-style: italic;
+    font-family: 'ALSRubl-Verdana';
+    src: url('/css/b-rub_verdana/alsrubl-verdana-bolditalic.eot');
+    src: url('/css/b-rub_verdana/alsrubl-verdana-bolditalic.eot?#iefix') format('embedded-opentype'), url('/css/b-rub_verdana/alsrubl-verdana-bolditalic.woff') format('woff'), url('/css/b-rub_verdana/alsrubl-verdana-bolditalic.ttf') format('truetype'), url('/css/b-rub_verdana/alsrubl-verdana-bolditalic.svg#ALSRublBoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
 }
 
 /*
@@ -37,122 +38,180 @@
   Если вам нужен рубль в нескольких шрифтах, используйте .b-rub_verdana, вместо .b-rub
 */
 .b-rub, .b-rub_verdana {
-  font-family: 'ALSRubl-Verdana';
-  line-height: normal;
-  font-size: 16px;
+    font-family: 'ALSRubl-Verdana';
+    line-height: normal;
+    /*font-size: 16px;*/
 }
+
 * {
-  margin: 0;
-  padding: 0; }
+    margin: 0;
+    padding: 0;
+}
 
 .clearfix {
-  display: block; }
+    display: block;
+}
 
 .clearfix:after {
-  display: block;
-  visibility: hidden;
-  clear: both;
-  height: 0;
-  content: ".";
-  line-height: 0; }
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: ".";
+    line-height: 0;
+}
 
 * html .clearfix {
-  height: 1%; }
+    height: 1%;
+}
 
 .wrap {
-  transform: scale(2);
-  width: 470px;
-  height: 470px;
-  font-family: 'Lato', sans-serif;
-  margin: 0 auto;
-  background: #9033e8;
+    /*transform: scale(2);*/
+    width: 1200px;
+    height: 1200px;
+    font-family: 'Lato', sans-serif;
+    margin: 0 auto;
+    background: #9033e8;
 }
 
 .text-center {
-  text-align: center; }
+    text-align: center;
+}
 
 .b-map {
-  background-image: url("/img/map.png");
-  background-position: center top;
-  -moz-background-size: contain;
-       background-size: contain;
-  background-repeat: no-repeat;
-  color: #fff;
-  padding-top: 48px;
-  padding-bottom: 48px; }
-  .b-map__year {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 28px; }
-  .b-map__month {
+    background-image: url("/img/map.png");
+    background-position: center top;
+    -moz-background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding-top: 118px;
+    /*padding-bottom: 118px;*/
+}
+
+.b-map__year {
     font-size: 30px;
+    font-weight: 400;
+    line-height: 45px;
+}
+
+.b-map__month {
+    font-size: 76px;
     font-weight: 300;
-    line-height: 48px; }
-  .b-map__table {
-    width: 376px;
-    margin: 22px auto 0; }
-    .b-map__table tr {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.34); }
-      .b-map__table tr:last-child {
-        border-bottom: 0; }
-    .b-map__table td {
-      padding: 9px 0px 11px;
-      white-space: nowrap; }
-      .b-map__table td span, .b-map__table td img {
-        display: inline-block;
-        vertical-align: middle; }
-      .b-map__table td img {
-        position: relative;
-        top: 3px;
-        margin-right: 11px; }
-  .b-map__table-first {
-    text-align: left; }
-  .b-map__table-last {
+    line-height: 100px;
+    margin-top: 27px;
+}
+
+.b-map__table {
+    width: 960px;
+    margin: 64px auto 80px;
+
+}
+
+.b-map__table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.34);
+}
+
+.b-map__table tr:last-child {
+    border-bottom: 0;
+}
+
+.b-map__table td {
+    padding: 22px 0 20px;
+    white-space: nowrap;
+}
+
+.b-map__table td span, .b-map__table td img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.b-map__table td img {
+    position: relative;
+    /*top: 4px;*/
+    margin-right: 35px;
+    width: 93px;
+}
+
+.b-map__table-first {
+    text-align: left;
+}
+
+.b-map__table-last {
     text-align: right;
     position: relative;
-    top: 2px; }
-  .b-map__name-coin {
+    top: 2px;
+}
+
+.b-map__name-coin {
     letter-spacing: 0.4px;
     font-family: Lato;
-    font-size: 16px;
-    font-weight: 400; }
-  .b-map__label {
-    height: 28px;
+    font-size: 40px;
+    font-weight: 400;
+    position: relative;
+    /*top: -3px;*/
+}
+
+.b-map__label {
+    height: 73px;
     -webkit-border-radius: 14px;
-       -moz-border-radius: 14px;
-            border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 38px;
     background-color: #ffffff;
-    line-height: 28px;
+    line-height: 73px;
     color: #000;
-    padding: 0 8px;
-    margin-left: 4px; }
-    .b-map__label.red {
-      color: #ce3920; }
-    .b-map__label.green {
-      color: #20ce99; }
-  .b-map__num-coin {
-    font-size: 14px;
-    letter-spacing: 0.35px; }
-  .b-map__diff-coin {
-    font-size: 14px;
-    letter-spacing: 0.3px; }
-  .b-map__charts {
-    height: 87px;
-    background-color: #a151eb; }
+    padding: 0 25px;
+    margin-left: 15px;
+}
+
+.b-map__label.red {
+    color: #ce3920;
+}
+
+.b-map__label.green {
+    color: #20ce99;
+}
+
+.b-map__num-coin {
+    font-size: 40px;
+    letter-spacing: 0.35px;
+}
+
+.b-map__diff-coin {
+    font-size: 36px;
+    letter-spacing: 0.3px;
+}
+
+.b-map__charts {
+    height: 215px;
+    background-color: #a151eb;
+}
 
 .table-ch {
-  text-align: center;
-  margin: 28px auto 0; }
-  .table-ch td {
-    padding: 0 10px; }
-  .table-ch__currency-name {
-    font-size: 12px;
-    font-weight: 400; }
-    .table-ch__currency-name td {
-      padding-top: 19px; }
-  .table-ch__currency-num {
+    text-align: center;
+    margin: 28px auto 0;
+}
+
+.table-ch td {
+    padding: 0 40px;
+}
+
+.table-ch__currency-name {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.table-ch__currency-name td {
+    padding-top: 48px;
+}
+
+.table-ch__currency-num {
     font-weight: 300;
     letter-spacing: 0.8px;
-    font-size: 16px; }
-    .table-ch__currency-num td {
-      padding-top: 11px; }
+    font-size: 32px;
+}
+
+.table-ch__currency-num td {
+    padding-top: 32px;
+    font-size: 37px;
+}

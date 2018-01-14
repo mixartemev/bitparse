@@ -164,7 +164,8 @@ class Instagram
           $this->getRecentActivity();
 
           return $login[1];
-      } else { $login[1]['status']='logged'; return $login[1]; }
+      }
+      else { $login[1]['status']='logged'; return $login[1]; }
 
       $this->timelineFeed();
       $this->getv2Inbox();
