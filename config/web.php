@@ -16,7 +16,7 @@ $config = [
         'formatter' => [
             //'dateFormat' => 'dd.MM.yyyy',
             //'decimalSeparator' => ',',
-            'thousandSeparator' => ' ',
+            'thousandSeparator' => ',',
             //'currencyCode' => 'EUR',
         ],
         'cache' => [
