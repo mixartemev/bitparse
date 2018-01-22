@@ -37,7 +37,7 @@ $prd = ['24h' => 'day', '1h' => 'hour', '7d' => 'week']
                 </td>
                 <td class="b-map__table-last">
                     <span class="b-map__num-coin"><!--<span class="b-rub">--><?= History::$currencies[$cur] ?><!--</span>--><?= Yii::$app->formatter->asDecimal($model[$k][$type], $type=='cap'?0:2, []) ?></span>
-                    <span class="b-map__label <?= $charge > 0 ? 'green' : 'red' ?> b-map__diff-coin"><?= Yii::$app->formatter->asDecimal($charge) ?>% / <?= Yii::$app->formatter->asDecimal($model[$k]['usd_change_24h']) ?></span>
+                    <span class="b-map__label <?= $charge > 0 ? 'green' : 'red' ?> b-map__diff-coin"><?= Yii::$app->formatter->asDecimal($charge) ?>% / <?= History::$currencies[$cur] ?><?= Yii::$app->formatter->asDecimal($model[$k]['usd_change_24h']) ?></span>
                 </td>
             </tr>
 		    <?php
