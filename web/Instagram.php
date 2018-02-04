@@ -462,9 +462,31 @@ class Instagram
 
       return $this->request("media/$mediaId/edit_media/", $this->generateSignature($data));
   }
+  /**
+   * Send media to story.
+   *
+   * @param string $mediaId
+   *   Media id
+   * @param string $captionText
+   *   Caption text
+   *
+   * @return array
+   *   edit media data
+   */
+  public function mediaToStory($mediaId, $captionText = '')
+  {
+      $data = json_encode(array(
+        '_uuid'          => $this->uuid,
+        '_uid'           => $this->username_id,
+        '_csrftoken'     => $this->token,
+        'upload_id'   => $mediaId,
+        'caption'   => $captionText,
+    ));
+      return $this->request("create/configure_to_story/", $this->generateSignature($data));
+  }
 
   /**
-   * Delete photo or video.
+   * Info photo or video.
    *
    * @param string $mediaId
    *   Media id
